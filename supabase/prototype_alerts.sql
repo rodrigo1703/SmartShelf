@@ -33,6 +33,7 @@ CREATE TABLE public.alertas (
     tipo text NOT NULL,
     mensagem text NOT NULL,
     resolvido boolean DEFAULT false,
+    criado_em timestamp with time zone DEFAULT now(),
     resolvido_em timestamp with time zone
 );
 
