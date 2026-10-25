@@ -10,6 +10,7 @@ CREATE TABLE public.produtos (
 CREATE TABLE public.prateleiras (
     id uuid DEFAULT gen_random_uuid() PRIMARY KEY,
     nome text NOT NULL,
+    ativo BOOLEAN DEFAULT true,
     capacidade_kg numeric NOT NULL,
     produto_id uuid REFERENCES public.produtos(id) ON DELETE SET NULL,
     created_at timestamp with time zone DEFAULT now()
@@ -113,3 +114,5 @@ DROP TRIGGER IF EXISTS trg_processar_alertas_leitura ON public.leituras;
 CREATE TRIGGER trg_processar_alertas_leitura
   AFTER INSERT ON public.leituras
   FOR EACH ROW EXECUTE FUNCTION public.processar_alertas_leitura();
+
+
