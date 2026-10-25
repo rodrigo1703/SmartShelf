@@ -5,6 +5,7 @@ CREATE TABLE public.produtos (
     codigo text UNIQUE,
     peso_unitario_kg numeric NOT NULL,
     estoque_minimo integer DEFAULT 0,
+    ativo BOOLEAN DEFAULT true,
     criado_em timestamp with time zone DEFAULT now()
 );
 
